@@ -5,22 +5,22 @@ import cv2 as cv
 import numpy as np
 from djitellopy import Tello
 
-####################### [ CONFIG ] #######################
+# The custom YOLOv5 trained weights path
 xMainPath = "weights/train.pt"
 
 shouldFly = True
-screenSize = (960, 540)  # Output screen size
+screenSize = (960, 540)
 
 # Stability and smoothing parameters
 DEAD_ZONE_X = 50
 DEAD_ZONE_Y = 50
-max_velocity = 50  # Maximum velocity for smoother movements
-stability_threshold = 3  # Frames required for stable direction
+max_velocity = 50  
+stability_threshold = 3  
 
 # Target size range for maintaining a specific distance
-TARGET_SIZE_MIN = 12000  # Adjust based on experimentation
-TARGET_SIZE_MAX = 14000  # Adjust based on experimentation
-####################### [ CONFIG ] #######################
+TARGET_SIZE_MIN = 12000  
+TARGET_SIZE_MAX = 14000  
+
 
 
 def get_targets(results):
@@ -67,14 +67,13 @@ if torch.cuda.is_available():
 tello = Tello()
 tello.connect()
 
-# Start the Tello video stream and wait for it to initialize
 tello.streamon()
-time.sleep(5)  # Allow time for the video stream to initialize
+time.sleep(5)  
 
 # Take off and stabilize
 if shouldFly:
     tello.takeoff()
-    tello.send_rc_control(0, 0, 0, 0)  # Send initial stop command to stabilize
+    tello.send_rc_control(0, 0, 0, 0)  
 
 # Get frame dimensions for the center reference
 frame_width, frame_height = screenSize[0], screenSize[1]
@@ -134,7 +133,7 @@ try:
                 elif target["size"] > TARGET_SIZE_MAX:
                     forward_backward_velocity = -int((target["size"] - TARGET_SIZE_MAX) / TARGET_SIZE_MAX * max_velocity)
                 else:
-                    forward_backward_velocity = 0  # Within the ideal range, no forward/backward movement
+                    forward_backward_velocity = 0  
 
                 if shouldFly:
                     tello.send_rc_control(left_right_velocity, forward_backward_velocity, up_down_velocity, yaw_velocity)

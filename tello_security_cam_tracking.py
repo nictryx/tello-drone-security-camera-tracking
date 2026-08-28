@@ -6,7 +6,7 @@ import numpy as np
 from djitellopy import Tello
 
 # The custom YOLOv5 trained weights path
-xMainPath = "weights/train.pt"
+xMainPath = "weights/security_camera_model.pt"
 
 shouldFly = True
 screenSize = (960, 540)

@@ -6,7 +6,7 @@ import numpy as np
 from djitellopy import Tello
 
 ####################### [ CONFIG ] #######################
-xMainPath = r"C:\Users\ALIENWARE\Desktop\yolov5-7.0\yolov5-7.0\runs\train\exp21\weights\best.pt"
+xMainPath = "weights/train.pt"
 
 shouldFly = True
 screenSize = (960, 540)  # Output screen size

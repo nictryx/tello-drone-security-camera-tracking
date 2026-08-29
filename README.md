@@ -33,6 +33,6 @@ The drone also uses the detected object's size to estimate whether it should mov
 - NumPy
 - DJITelloPy
 
-## Project Purpose
+## Project Goal
 
-The Purpose of this project is to demonstrate autonomous drone perception and tracking by allowing a DJI Tello drone to detect, follow, and maintain alignment with a security camera using computer vision.
+The goal of this project is to demonstrate autonomous drone perception and tracking by allowing a DJI Tello drone to detect, follow, and maintain alignment with a security camera using computer vision.
